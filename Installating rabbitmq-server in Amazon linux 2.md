@@ -1,5 +1,5 @@
 Installating rabbitmq-server in Amazon linux 2
-
+ 
 Step 1. Installing Erlang Version 20.1
 Erlang is also a language which needs to be installed. Use the following commands to install Erlang.
 
