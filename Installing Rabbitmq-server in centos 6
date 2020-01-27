@@ -1,0 +1,17 @@
+Installing Rabbitmq-server in centos 6 
+
+1. wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.1/rabbitmq-server-3.6.1-1.noarch.rpm
+2. rpm --import https://www.rabbitmq.com/rabbitmq-signing-key-public.asc 
+3. yum install rabbitmq-server-3.6.1-1.noarch.rpm
+4. If there is some error regading any dependency for erlang then do follow following setup :
+	4.1 wget https://github.com/rabbitmq/erlang-rpm/releases/download/v20.3.0/erlang-20.3-1.el6.x86_64.rpm
+	4.2 yum install erlang-20.3-1.el6.x86_64.rpm
+5. Again repeat step 3.
+6. service rabbitmq-server start
+7. service rabbitmq-server status
+8. rabbitmq-plugins enable rabbitmq_management
+9. chown -R rabbitmq:rabbitmq /var/lib/rabbitmq/ 
+10 rabbitmqctl add_user admin mqadmin 
+11. rabbitmqctl set_user_tags admin administrator
+12. rabbitmqctl set_permissions -p / admin " .*"  " .*"  " .*"
+13. Open the browser and enter the http://< IP_address> :15672 and Login RabbitMQ
